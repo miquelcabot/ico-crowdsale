@@ -12,9 +12,8 @@ import 'hardhat-gas-reporter';
 const CHAIN_IDS = {
   hardhat: 1337,
   mainnet: 1,
-  ropsten: 3,
   rinkeby: 4,
-  bscmain: 56,
+  bsc: 56,
   bsctest: 97
 };
 
@@ -40,11 +39,6 @@ const config: HardhatUserConfig = {
       gasPrice: 100000000000,
       accounts: { mnemonic: MNEMONIC }
     },
-    ropsten: {
-      url: getInfuraURL('ropsten'),
-      chainId: CHAIN_IDS.ropsten,
-      accounts: { mnemonic: MNEMONIC }
-    },
     rinkeby: {
       url: getInfuraURL('rinkeby'),
       chainId: CHAIN_IDS.rinkeby,
@@ -56,9 +50,9 @@ const config: HardhatUserConfig = {
       gasPrice: 20000000000,
       accounts: { mnemonic: MNEMONIC }
     },
-    bscmain: {
+    bsc: {
       url: 'https://bsc-dataseed.binance.org/',
-      chainId: CHAIN_IDS.bscmain,
+      chainId: CHAIN_IDS.bsc,
       gasPrice: 20000000000,
       accounts: { mnemonic: MNEMONIC }
     },
@@ -71,9 +65,7 @@ const config: HardhatUserConfig = {
   },
   solidity: {
     compilers: [
-      { version: '0.7.6', settings: { optimizer: { enabled: true, runs: 200 } } },
-      { version: '0.6.2', settings: { optimizer: { enabled: true, runs: 200 } } },
-      { version: '0.6.0', settings: { optimizer: { enabled: true, runs: 200 } } }
+      { version: '0.8.0', settings: { optimizer: { enabled: true, runs: 200 } } }
     ]
   },
   mocha: {
